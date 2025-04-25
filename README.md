@@ -37,6 +37,13 @@ This is a simple Tic Tac Toe game implemented in Java using a graphical user int
    ```
    gradle run
    ```
+## or
+
+1. Download .ZIP file
+
+2. extract the zip file on any accessible destination
+
+3. Open the extracted folder with any compilers and run
 
 ## Project Structure
 
