@@ -40,6 +40,7 @@ This is a simple Tic Tac Toe game implemented in Java using a graphical user int
 ## or
 
 1. Download .ZIP file
+![image](https://github.com/user-attachments/assets/d4a01464-e06f-4dcf-bae9-a787412a1d0d)
 
 2. extract the zip file on any accessible destination
 
