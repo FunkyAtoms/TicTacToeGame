@@ -8,6 +8,8 @@ This is a simple Tic Tac Toe game implemented in Java using a graphical user int
 - Tracks player turns (X and O)
 - Checks for a winner after each turn
 - Option to start a new game
+- Option to reset saved score
+- Total Score saving, stored in file
 
 ## Getting Started
 
