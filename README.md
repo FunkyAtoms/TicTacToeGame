@@ -1,4 +1,5 @@
 # Tic Tac Toe Game
+# By Ram Jay Po
 
 This is a simple Tic Tac Toe game implemented in Java using a graphical user interface (GUI). The game allows two players to take turns playing on a 3x3 grid, and it checks for a winner after each turn. A "New Game" button is provided to reset the game.
 
