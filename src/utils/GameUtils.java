@@ -1,9 +1,12 @@
 package TicTacToeGame.src.utils;
 
+import java.io.*;
+
 public class GameUtils {
     private static int playerXScore = 0;
     private static int playerOScore = 0;
     private static boolean isPlayerXTurn = true; // true for Player X, false for Player O
+    private static final String SCORE_FILE = "scores.txt";
 
     public static boolean checkWinner(String[][] board) {
         System.out.println("Checking board state:");
@@ -69,7 +72,7 @@ public class GameUtils {
         } else if ("O".equals(winner)) {
             playerOScore++;
         }
-        System.out.println("Updated scores: Player X = " + playerXScore + ", Player O = " + playerOScore); //debug to check the scores
+        System.out.println("Updated scores: Player X = " + playerXScore + ", Player O = " + playerOScore);
     }
 
     public static int getPlayerXScore() {
@@ -80,11 +83,45 @@ public class GameUtils {
         return playerOScore;
     }
 
+    public static void setPlayerXScore(int score) {
+        playerXScore = score;
+    }
+
+    public static void setPlayerOScore(int score) {
+        playerOScore = score;
+    }
+
     public static boolean isPlayerXTurn() {
         return isPlayerXTurn;
     }
 
     public static void toggleTurn() {
         isPlayerXTurn = !isPlayerXTurn;
+    }
+
+    public static void saveScores() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(SCORE_FILE))) {
+            writer.write(playerXScore + "\n");
+            writer.write(playerOScore + "\n");
+        } catch (IOException e) {
+            System.err.println("Error saving scores: " + e.getMessage());
+        }
+    }
+
+    public static void loadScores() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(SCORE_FILE))) {
+            playerXScore = Integer.parseInt(reader.readLine());
+            playerOScore = Integer.parseInt(reader.readLine());
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("No previous scores found or invalid file. Starting fresh.");
+            playerXScore = 0;
+            playerOScore = 0;
+        }
+    }
+
+    public static void resetScores() {
+        playerXScore = 0;
+        playerOScore = 0;
+        saveScores(); // Save reset scores to file
     }
 }
